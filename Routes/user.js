@@ -34,7 +34,7 @@ userRoute.post("/login",async(req,res)=>{
     const token=jwt.sign(
         {_id:user._id,name:user.name,is_Admin:user.is_Admin},process.env.Secretkey,{expiresIn:"1d"}
     )
-    res.status(201).send({token:token,userId:user._id,message:"Signing In Please wait... "});
+    res.status(201).send({token:token,userId:user._id,name:user.name,avatar:user.avatar,message:"Signing In Please wait... "});
 })
 
 
