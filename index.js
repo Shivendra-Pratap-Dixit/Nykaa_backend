@@ -10,10 +10,10 @@ const app=express();
 const PORT=process.env.PORT ||8080;
 app.use(express.json())
 app.use(cors());
-app.use("/user",userRoute);
-app.use("/products",productRoute)
+app.use("/api",userRoute);
+app.use("/api",productRoute)
 app.get("/",(req,res)=>{
-    res.status(200).send({message:"Welcome to Nykaa Backend by Shivendra for user/register and user/login {for Products => products/add(for post product) products/(for get product) products/:id(for single product) products/edit/:id (for edit) products/delete/:id(for delete the product) "})
+    res.status(200).send({message:"Welcome to Nykaa Backend by Shivendra for api/register and api/login {for Products => api/products(for post product) products/(for get product) api/products/:id(for single product) api/products/:id (for edit patch) api/products/:id(for delete the product) "})
 })
 app.listen(PORT,async()=>{
     try {

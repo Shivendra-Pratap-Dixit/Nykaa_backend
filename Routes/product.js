@@ -7,7 +7,7 @@ const productRoute=require("express").Router()
 
 //get product
 
-productRoute.get("/",admin,async(req,res)=>{
+productRoute.get("/products",admin,async(req,res)=>{
 try {
     const products=await productModel.find();
 return res.status(200).send(products)
@@ -16,7 +16,7 @@ return res.status(200).send(products)
 }
 })
 
-productRoute.get("/:id",admin,async(req,res)=>{
+productRoute.get("/products/:id",admin,async(req,res)=>{
     const {id} = req.params;
     try {
         const product = await productModel.find({_id:id});
@@ -30,7 +30,7 @@ productRoute.get("/:id",admin,async(req,res)=>{
 });
 
 
-productRoute.post("/add",admin,async(req,res)=>{
+productRoute.post("/proucts",admin,async(req,res)=>{
     
     try {
         const product =new productModel(req.body);
@@ -42,7 +42,7 @@ productRoute.post("/add",admin,async(req,res)=>{
     }
 });
 
-productRoute.patch("/edit/:id",admin,async(req,res)=>{
+productRoute.patch("/products/:id",admin,async(req,res)=>{
     const {id} = req.params;
 
     try {
@@ -55,7 +55,7 @@ productRoute.patch("/edit/:id",admin,async(req,res)=>{
 });
 
 
-productRoute.delete("/delete/:id",admin,async(req,res)=>{
+productRoute.delete("/products/:id",admin,async(req,res)=>{
     const {id} = req.params;
 
     try {
